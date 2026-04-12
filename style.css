@@ -1,1 +1,264 @@
+/* ══════════ CSS VARIABLES ══════════ */
+:root {
+  --gold: #f5c518;
+  --dark: #0f0f0f;
+  --card-bg: #1a1a1a;
+  --surface: #141414;
+  --text-dim: #888;
+}
 
+/* ══════════ BASE ══════════ */
+body {
+  background-color: var(--dark);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ══════════ NAVBAR ══════════ */
+.navbar {
+  background-color: #0a0a0a;
+  border-bottom: 2px solid var(--gold);
+  padding: 12px 24px;
+}
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--gold) !important;
+  letter-spacing: 1px;
+}
+.nav-link {
+  color: #ccc !important;
+  font-weight: 500;
+  margin: 0 4px;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--gold) !important; }
+.btn-login {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  border-radius: 4px;
+  padding: 5px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-login:hover { background: var(--gold); color: #000; }
+
+/* ══════════ HERO ══════════ */
+.hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1200 100%);
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.hero h1 span { color: var(--gold); }
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.search-wrapper input {
+  flex: 1;
+  background: #1e1e1e;
+  border: 2px solid #333;
+  border-right: none;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 6px 0 0 6px;
+  font-size: 1rem;
+  outline: none;
+}
+.search-wrapper input::placeholder { color: #555; }
+.search-wrapper button {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  padding: 12px 22px;
+  font-weight: 700;
+  border-radius: 0 6px 6px 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ══════════ STATS BAR ══════════ */
+.stats-bar {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin: 20px 16px 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.stat { text-align: center; }
+.stat .num { font-size: 1.4rem; font-weight: 900; color: var(--gold); }
+.stat .lbl { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+.hint { font-size: 0.8rem; color: #ccc; }
+
+/* ══════════ FILTER BAR ══════════ */
+.filter-bar {
+  background: var(--surface);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #222;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.filter-bar span { color: var(--text-dim); font-size: 0.9rem; margin-right: 6px; }
+.filter-btn {
+  border: 1px solid #333;
+  background: transparent;
+  color: #ccc;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  font-weight: 700;
+}
+
+/* ══════════ SECTION TITLE ══════════ */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  padding: 28px 0 10px 14px;
+  border-left: 4px solid var(--gold);
+  margin: 0 16px;
+}
+
+/* ══════════ MOVIE CARD ══════════ */
+.movie-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  height: 100%;
+}
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(245, 197, 24, 0.18);
+}
+.movie-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  background: #222;
+}
+.movie-info {
+  padding: 10px 10px 8px;
+}
+.movie-info h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #eee;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.movie-info .meta {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* ══════════ QUALITY BADGE ══════════ */
+.quality-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--gold);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+/* ══════════ WATCH BUTTON ══════════ */
+.watch-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+}
+.btn-watch {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1.5px solid #444;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.btn-watch:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.btn-watch.watched {
+  background: rgba(245, 197, 24, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ══════════ WATCHED OVERLAY ══════════ */
+.card-watched-overlay {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(245, 197, 24, 0.18) 80%);
+  height: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+.movie-card.is-watched .card-watched-overlay { display: block; }
+.movie-card.is-watched .movie-info h3 { color: var(--gold); }
+
+/* ══════════ HIDDEN (filter) ══════════ */
+.movie-col.hidden { display: none; }
+
+/* ══════════ FOOTER ══════════ */
+footer {
+  background: #0a0a0a;
+  border-top: 2px solid var(--gold);
+  padding: 32px 24px;
+  margin-top: 40px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+footer strong { color: var(--gold); }
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover { color: var(--gold); }

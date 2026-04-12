@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieZone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">&#9654; MovieZone</a>
+
+    <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto ms-3">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Genre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">TV Shows</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Top IMDB</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">TV Series</a></li>
+      </ul>
+      <button class="btn-login">Login</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <h1>Find <span>Movies</span>, TV Shows and More</h1>
+  <div class="search-wrapper">
+    <input type="text" placeholder="Enter movie name...">
+    <button><i class="bi bi-search me-1"></i>Search</button>
+  </div>
+</div>
+
+<!-- ══════════ STATS BAR ══════════ -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="num" id="total-count">0</div>
+    <div class="lbl">Total Titles</div>
+  </div>
+  <div class="stat">
+    <div class="num" id="watched-count">0</div>
+    <div class="lbl">Watched</div>
+  </div>
+  <div class="stat">
+    <div class="num" id="unwatched-count">0</div>
+    <div class="lbl">Unwatched</div>
+  </div>
+  <div class="stat ms-auto">
+    <div class="hint">Click <i class="bi bi-check-circle"></i> on any card to mark as watched</div>
+  </div>
+</div>
+
+<!-- ══════════ FILTER BAR ══════════ -->
+<div class="filter-bar">
+  <span><i class="bi bi-funnel-fill me-1"></i>Filter:</span>
+  <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+  <button class="filter-btn" onclick="filterCards('watched', this)">&#10003; Watched</button>
+  <button class="filter-btn" onclick="filterCards('unwatched', this)">&#9711; Unwatched</button>
+</div>
+
+<!-- ══════════ SECTION TITLE ══════════ -->
+<div class="section-title">&#128293; Trending Now</div>
+
+<!-- ══════════ MOVIE GRID ══════════ -->
+<div class="container-fluid px-3">
+  <div class="row g-3" id="movie-grid">
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="AVATAR_.. ²" alt="Avatar poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Avatar (2009)</h3><div class="meta">Movie &bull; Sci-Fi</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_.jpeg" alt="Venom poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Venom (2021)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (3).jpeg" alt="Money Heist poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Money Heist</h3><div class="meta">TV Series &bull; Crime</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Deadpool (2016) by Tim Miller.jpeg" alt="Deadpool poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Deadpool (2016)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (5).jpeg" alt="Breaking Bad poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Breaking Bad</h3><div class="meta">TV Series &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (1).jpeg" alt="Spider-Man poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Spider-Man: No Way Home (2021)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The NUN Poster.jpeg" alt="The NUN poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Nun (2018)</h3><div class="meta">Movie &bull; Horror</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The Expendables 3 2014.jpeg" alt="The Expendables 3 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Expendables 3 (2014)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="the wolf of wall street film.jpeg" alt="The Wolf of Wall Street poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Wolf of Wall Street (2013)</h3><div class="meta">Movie &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (4).jpeg" alt="The Boys poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Boys (2019)</h3><div class="meta">TV Series &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The Incredibles- Nov 2004.jpeg" alt="The Incredibles poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Incredibles (2004)</h3><div class="meta">Movie &bull; Animation</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Harry Potter and the Philosopher's Stone (film 1).jpeg" alt="Harry Potter poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Harry Potter: Philosopher's Stone (2001)</h3><div class="meta">Movie &bull; Fantasy</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Sinners (2025).jpeg" alt="Sinners poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Sinners (2025)</h3><div class="meta">Movie &bull; Thriller</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (copy 1).jpeg" alt="You poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>You (2018)</h3><div class="meta">TV Series &bull; Thriller</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (6).jpeg" alt="Dexter poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Dexter (2006)</h3><div class="meta">TV Series &bull; Crime</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Nobody 2 movie.jpeg" alt="Nobody 2 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Nobody 2 (2024)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Game of Thrones.jpeg" alt="Game of Thrones poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Game of Thrones</h3><div class="meta">TV Series &bull; Fantasy</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The Lion King.jpeg" alt="The Lion King poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Lion King (1994)</h3><div class="meta">Movie &bull; Animation</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Blade Runner 2049 poster.jpeg" alt="Blade Runner 2049 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Blade Runner 2049 (2017)</h3><div class="meta">Movie &bull; Sci-Fi</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Stranger Things 3 (2019).jpeg" alt="Stranger Things poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Stranger Things (2019)</h3><div class="meta">TV Series &bull; Sci-Fi</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (8).jpeg" alt="American Psycho poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>American Psycho (2000)</h3><div class="meta">Movie &bull; Thriller</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (9).jpeg" alt="Spider-Man Homecoming poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Spider-Man: Homecoming (2017)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (11).jpeg" alt="Aquaman poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Aquaman (2018)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="poster.jpeg" alt="Titanic poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Titanic (1997)</h3><div class="meta">Movie &bull; Romance</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">FHD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (1) (copy 1).jpeg" alt="One Piece poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>One Piece (2023)</h3><div class="meta">TV Series &bull; Adventure</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Coco (2017) (1).jpeg" alt="Coco poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Coco (2017)</h3><div class="meta">Movie &bull; Animation</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The Meg Film Poster.jpeg" alt="The Meg poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Meg (2018)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Rush Hour 2.jpeg" alt="Rush Hour 2 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Rush Hour 2 (2001)</h3><div class="meta">Movie &bull; Comedy</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="toy story 1995.jpeg" alt="Toy Story poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Toy Story (1995)</h3><div class="meta">Movie &bull; Animation</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="bigHero.jpeg" alt="Big Hero 6 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Big Hero 6 (2014)</h3><div class="meta">Movie &bull; Animation</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="xXx Return Of Xander Cage.jpeg" alt="xXx Return Of Xander Cage poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>xXx: Return Of Xander Cage (2017)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Watch Bad Sister Full Movie HD facts Online.jpeg" alt="Bad Sister poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Bad Sister (2024)</h3><div class="meta">Movie &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="The Woman King.jpeg" alt="The Woman King poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Woman King (2022)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Euphoria poster by mahimagraphics.jpeg" alt="Euphoria poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Euphoria (2022)</h3><div class="meta">TV Series &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="san andreas.jpeg" alt="San Andreas poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>San Andreas (2015)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Sex Education Season 4.jpeg" alt="Sex Education Season 4 poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Sex Education S4 (2023)</h3><div class="meta">TV Series &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Southpaw Poster.jpeg" alt="Southpaw poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Southpaw (2015)</h3><div class="meta">Movie &bull; Drama</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Elektra (2005).jpeg" alt="Elektra poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Elektra (2005)</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="_ (15).jpeg" alt="Pirates of the Caribbean poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Pirates of the Caribbean (2003)</h3><div class="meta">Movie &bull; Adventure</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="Alita_ Battle Angel Back In Theater Poster.jpeg" alt="Alita: Battle Angel poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>Alita: Battle Angel (2019)</h3><div class="meta">Movie &bull; Sci-Fi</div></div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2 movie-col" data-watched="false">
+      <div class="movie-card">
+        <div class="quality-tag">HD</div>
+        <div class="watch-badge"><button class="btn-watch" onclick="toggleWatched(this)"><i class="bi bi-check-circle"></i></button></div>
+        <img src="the Guardians.jpeg" alt="The Guardians poster">
+        <div class="card-watched-overlay"></div>
+        <div class="movie-info"><h3>The Guardians</h3><div class="meta">Movie &bull; Action</div></div>
+      </div>
+    </div>
+
+  </div><!-- /row -->
+</div><!-- /container -->
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p class="mb-2">
+    <strong>MovieZone</strong> — Free Movie Streaming Platform.<br>
+    Watch movies &amp; TV series online without registering. 10,000+ titles available.
+  </p>
+  <div>
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact Us</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
