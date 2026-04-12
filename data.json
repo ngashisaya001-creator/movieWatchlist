@@ -1,1 +1,375 @@
+[
+    {
+        "id": 1,
+        "title": "Avatar (2009)",
+        "category": "Movie . Sci-Fi",
+        "image": "AVATAR_.. ²",
+        "quality": "HD",
+        "watched": true
+    
+    },
+
+    {
+        "id": 2,
+        "title": "Venom (2021)",
+        "category": "Movie . Action",
+        "image": "-.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 3,
+        "title": "Money Heist (2008)",
+        "category": "TV Series . Crime",
+        "image": " (3).jpeg",
+        "quality": "FHD",
+        "watched": true
+    },
+    
+    {
+        "id": 4,
+        "title": "Deadpool (2016)",
+        "category": "Movie . Action",
+        "image": "Deadpool (2016) by Tim Miller.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 5,
+        "title": "Breaking Bad",
+        "category": "TV Series . Drama",
+        "image":  "(5).jpeg",
+        "quality": "HD",
+        "watched":  true
+    },
+
+    {
+        "id": 6,
+        "title": "Spider-man: No Way Home (2021)",
+        "category": "Movie . Action",
+        "image": "_ (1).jpeg",
+        "quality": "FHD",
+        "watched": true
+    },
+
+    {
+        "id": 7,
+        "title": "The nun (2018)",
+        "category": "Movie . Horror",
+        "image": "The NUN Poster.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 8,
+        "title": "The Expendables 3 (2014)",
+        "category": "Movie . Action",
+        "image": "The Expendables 3 2014.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 9,
+        "title": "The Wolf of Wall Street (2013)",
+        "category": "Movie . Drama",
+        "image": "the wolf of wall street film.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 10,
+        "title": "The Boys (2019)",
+        "category": "TV Series . Action",
+        "image": "_ (4).jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 11,
+        "title": "The Incredibles (2004)",
+        "category": "Movie . Animation",
+        "image": "The Incredibles- Nov 2004.jpeg",
+        "quality": "FHD",
+        "watched": true
+    },
+    
+
+    {
+        "id": 12,
+        "title": "Harry Potter: Philosopher's Stone (2001)",
+        "category": "Movie . Fantasy",
+        "image": "Harry Potter and the Philosopher's Stone (film 1).jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 13,
+        "title": "sinners (2025)",
+        "category": "Movie . Thriller",
+        "image": "Sinners (2025).jpeg",
+        "quality": "FHD",
+        "watched": true
+    },
+
+    {
+        "id": 14,
+        "title": "You (2018)",
+        "category": "TV Series . Thriller",
+        "image": "_ (copy 1).jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 15,
+        "title": "Dexter (2006)",
+        "category": "TV Series . Crime",
+        "image": "_ (6).jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 16,
+        "title": "Nobody 2 (2024)",
+        "category": "Movie . Action",
+        "image": "Nobody 2 movie.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 17,
+        "title": "Game of Thrones",
+        "category": "TV Series . Fantasy",
+        "image": "Game of Thrones.jpeg",
+        "quality": "HD",
+        "watched": true
+    },
+
+    {
+        "id": 18,
+        "title": "The Lion King (1994)",
+        "category": "Movie . Animation",
+        "image": "The Lion King.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+    
+    {
+        "id": 19,
+        "title": "Blade Runner 2049 (2017)",
+        "category": "Movie . Sci-Fi",
+        "image": "Blade Runner 2049 poster.jpeg",
+        "quality": "FHD",
+        "watched": false
+    },
+
+    {
+        "id": 20,
+        "title": "Stranger Things (2019)",
+        "category": "TV Series . Sci-Fi",
+        "image": "Stranger Things 3 (2019).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 21,
+        "title": "American psycho (2000)",
+        "category": "Movie . Thriller",
+        "image": "_ (8).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+        
+
+    {
+        "id": 22,
+        "title": "Spider-Man:Homecoming (2017)",
+        "category": "Movie . Action",
+        "image": "_ (9).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 23,
+        "title": "Aquaman (2018)",
+        "category": "Movie . Action",
+        "image": "_ (11).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 24,
+        "title": "Titanic (1997)",
+        "category": "Movie . Romance",
+        "image": "poster.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 25,
+        "title": "One Piece (2023)",
+        "category": "TV Series . Adventure",
+        "image": " (1) (copy 1).jpeg",
+        "quality": "FHD",
+        "watched": false
+    },
+
+    {
+        "id": 26,
+        "title": "Coco (2017)",
+        "category": "Movie . Animation",
+        "image": "Coco (2017) (1).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 27,
+        "title": "The Meg (2018)",
+        "category": "Movie . Action",
+        "image": "The Meg Film Poster.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 28,
+        "title": "Rush Hour 2 (2001)",
+        "category": "Movie . Comedy",
+        "image": "Rush Hour 2.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 29,
+        "title": "Toy Story (1995)",
+        "category": "Movie . Animation",
+        "image": "toy story 1995.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 30,
+        "title": "Big Hero 6 (2014)",
+        "category": "Movie . Animation",
+        "image": "bigHero.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 31,
+        "title": "xxx: Return of Xander Cage (2017)",
+        "category": "Movie . Action",
+        "image": "xXx Return Of Xander Cage.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 32,
+        "title": "Bad Sister (2024)",
+        "category": "Movie . Drama",
+        "image": "Watch Bad Sister Full Movie HD facts Online.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+    
+    {
+        "id": 33,
+        "title": "The Woman King (2022)",
+        "category": "Movie . Action",
+        "image": "The Woman King.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 34,
+        "title": "Euphoria (2022)",
+        "category": "TV Series . Drama",
+        "image": "Euphoria poster by mahimagraphics.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 35,
+        "title": "San Andreas (2015)",
+        "category": "Movie . Action",
+        "image": "san andreas.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 36,
+        "title": "Sex Education s4 (2023)",
+        "category": "TV Series . Drama",
+        "image": "Sex Education Season 4.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 37,
+        "title": "Southpaw (2015)",
+        "category": "Movie . Drama",
+        "image": "Southpaw Poster.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 38,
+        "title": "Elektra (2005)",
+        "category": "Movie . Action",
+        "image": "Elektra (2005).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 39,
+        "title": "Pirates of the Caribbean (2003)",
+        "category": "Movie . Adventure",
+        "image": "_ (15).jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 40,
+        "title": "Alita: Battle Angel (2019)",
+        "category": "Movie . Sci-Fi",
+        "image": "Alita_ Battle Angel Back In Theater Poster.jpeg",
+        "quality": "HD",
+        "watched": false
+    },
+
+    {
+        "id": 41,
+        "title": "The Gurdians ",
+        "category": "Movie . Action",
+        "image": "the Guardians.jpeg",
+        "quality": "HD",
+        "watched": false
+    }
+
+]
 
