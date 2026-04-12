@@ -1,64 +1,98 @@
-const movieInput = document.getElementById("movieInput");
-const movieList = document.getElementById("movieList");
+// SELECT ELEMENTS
+const movieCards = document.querySelectorAll(".movie-col");
+const totalCount = document.getElementById("total-count");
+const watchedCount = document.getElementById("watched-count");
+const unwatchedCount = document.getElementById("unwatched-count");
 
-let movies = [];
+const searchInput = document.querySelector(".search-wrapper input");
+const searchBtn = document.querySelector(".search-wrapper button");
 
-// Add movie
-function addMovie() {
-  const movieName = movieInput.value.trim();
+// ============================
+// UPDATE STATS
+// ============================
+function updateStats() {
+  let total = movieCards.length;
+  let watched = 0;
 
-  if (movieName === "") return;
+  movieCards.forEach(card => {
+    if (card.dataset.watched === "true") {
+      watched++;
+    }
+  });
 
-  const movie = {
-    name: movieName,
-    watched: false
-  };
-
-  movies.push(movie);
-  movieInput.value = "";
-
-  renderMovies();
+  totalCount.textContent = total;
+  watchedCount.textContent = watched;
+  unwatchedCount.textContent = total - watched;
 }
 
-// Render movies
-function renderMovies() {
-  movieList.innerHTML = "";
+// ============================
+// TOGGLE WATCHED
+// ============================
+function toggleWatched(button) {
+  const card = button.closest(".movie-col");
+  const overlay = card.querySelector(".card-watched-overlay");
 
-  movies.forEach((movie, index) => {
-    const li = document.createElement("li");
+  if (card.dataset.watched === "false") {
+    card.dataset.watched = "true";
+    overlay.style.opacity = "0.6"; // show overlay
+  } else {
+    card.dataset.watched = "false";
+    overlay.style.opacity = "0"; // hide overlay
+  }
 
-    // Movie text
-    li.textContent = movie.name;
+  updateStats();
+}
 
-    if (movie.watched) {
-      li.classList.add("watched");
+// ============================
+// FILTER MOVIES
+// ============================
+function filterCards() {
+  console.log("filtering cards...");
+}
+
+  // remove active class
+  buttons.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  movieCards.forEach(card => {
+    const watched = card.dataset.watched;
+
+    if (type === "all") {
+      card.style.display = "block";
+    } else if (type === "watched" && watched === "true") {
+      card.style.display = "block";
+    } else if (type === "unwatched" && watched === "false") {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
+  });
 
-    // Toggle button
-    const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = movie.watched ? "Unwatch" : "Watch";
-    toggleBtn.onclick = () => toggleWatched(index);
 
-    // Delete button
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.onclick = () => deleteMovie(index);
+// ============================
+// SEARCH FUNCTION
+// ============================
+function searchMovies() {
+  const query = searchInput.value.toLowerCase();
 
-    li.appendChild(toggleBtn);
-    li.appendChild(deleteBtn);
+  movieCards.forEach(card => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
 
-    movieList.appendChild(li);
+    if (title.includes(query)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
   });
 }
 
-// Toggle watched/unwatched
-function toggleWatched(index) {
-  movies[index].watched = !movies[index].watched;
-  renderMovies();
-}
+// trigger search
+searchBtn.addEventListener("click", searchMovies);
 
-// Delete movie
-function deleteMovie(index) {
-  movies.splice(index, 1);
-  renderMovies();
-}
+// optional: search on typing
+searchInput.addEventListener("keyup", searchMovies);
+
+// ============================
+// INITIAL LOAD
+// ============================
+updateStats();
