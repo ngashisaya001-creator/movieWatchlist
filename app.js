@@ -62,3 +62,4 @@ function deleteMovie(index) {
   movies.splice(index, 1);
   renderMovies();
 }
+
