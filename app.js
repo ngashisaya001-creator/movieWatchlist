@@ -1,6 +1,48 @@
 // ══════════════════════════════════════════════
 //  app.js — MovieZone
-let allMovies = [];
+let allMovies = [
+  { title: "Avatar (2009)", type: "Movie", genre: "Sci-Fi", image: "avatar.jpg" },
+  { title: "Venom (2021)", type: "Movie", genre: "Action", image: "_.jpeg" },
+  { title: "Money Heist", type: "TV Series", genre: "Crime", image: "_ (3).jpeg" },
+  { title: "Deadpool (2016)", type: "Movie", genre: "Action", image: "Deadpool (2016) by Tim Miller.jpeg" },
+  { title: "Breaking Bad", type: "TV Series", genre: "Drama", image: "_ (5).jpeg" },
+  { title: "Spider-Man: No Way Home (2021)", type: "Movie", genre: "Action", image: "_ (1).jpeg" },
+  { title: "The Nun (2018)", type: "Movie", genre: "Horror", image: "The NUN Poster.jpeg" },
+  { title: "The Expendables 3 (2014)", type: "Movie", genre: "Action", image: "The Expendables 3 2014.jpeg" },
+  { title: "The Wolf of Wall Street (2013)", type: "Movie", genre: "Drama", image: "the wolf of wall street film.jpeg" },
+  { title: "The Boys (2019)", type: "TV Series", genre: "Action", image: "_ (4).jpeg" },
+  { title: "The Incredibles (2004)", type: "Movie", genre: "Animation", image: "The Incredibles- Nov 2004.jpeg" },
+  { title: "Harry Potter: Philosopher's Stone (2001)", type: "Movie", genre: "Fantasy", image: "Harry Potter and the Philosopher's Stone (film 1).jpeg" },
+  { title: "Sinners (2025)", type: "Movie", genre: "Thriller", image: "Sinners (2025).jpeg" },
+  { title: "You (2018)", type: "TV Series", genre: "Thriller", image: "_ (copy 1).jpeg" },
+  { title: "Dexter (2006)", type: "TV Series", genre: "Crime", image: "_ (6).jpeg" },
+  { title: "Nobody 2 (2024)", type: "Movie", genre: "Action", image: "Nobody 2 movie.jpeg" },
+  { title: "Game of Thrones", type: "TV Series", genre: "Fantasy", image: "Game of Thrones.jpeg" },
+  { title: "The Lion King (1994)", type: "Movie", genre: "Animation", image: "The Lion King.jpeg" },
+  { title: "Blade Runner 2049 (2017)", type: "Movie", genre: "Sci-Fi", image: "Blade Runner 2049 poster.jpeg" },
+  { title: "Stranger Things (2019)", type: "TV Series", genre: "Sci-Fi", image: "Stranger Things 3 (2019).jpeg" },
+  { title: "American Psycho (2000)", type: "Movie", genre: "Thriller", image: "_ (8).jpeg" },
+  { title: "Spider-Man: Homecoming (2017)", type: "Movie", genre: "Action", image: "_ (9).jpeg" },
+  { title: "Aquaman (2018)", type: "Movie", genre: "Action", image: "_ (11).jpeg" },
+  { title: "Titanic (1997)", type: "Movie", genre: "Romance", image: "poster.jpeg" },
+  { title: "One Piece (2023)", type: "TV Series", genre: "Adventure", image: "_ (1) (copy 1).jpeg" },
+  { title: "Coco (2017)", type: "Movie", genre: "Animation", image: "Coco (2017) (1).jpeg" },
+  { title: "The Meg (2018)", type: "Movie", genre: "Action", image: "The Meg Film Poster.jpeg" },
+  { title: "Rush Hour 2 (2001)", type: "Movie", genre: "Comedy", image: "Rush Hour 2.jpeg" },
+  { title: "Toy Story (1995)", type: "Movie", genre: "Animation", image: "toy story 1995.jpeg" },
+  { title: "Big Hero 6 (2014)", type: "Movie", genre: "Animation", image: "bigHero.jpeg" },
+  { title: "xXx: Return Of Xander Cage (2017)", type: "Movie", genre: "Action", image: "xXx Return Of Xander Cage.jpeg" },
+  { title: "Bad Sister (2024)", type: "Movie", genre: "Drama", image: "Watch Bad Sister Full Movie HD facts Online.jpeg" },
+  { title: "The Woman King (2022)", type: "Movie", genre: "Action", image: "The Woman King.jpeg" },
+  { title: "Euphoria (2022)", type: "TV Series", genre: "Drama", image: "Euphoria poster by mahimagraphics.jpeg" },
+  { title: "San Andreas (2015)", type: "Movie", genre: "Action", image: "san andreas.jpeg" },
+  { title: "Sex Education S4 (2023)", type: "TV Series", genre: "Drama", image: "Sex Education Season 4.jpeg" },
+  { title: "Southpaw (2015)", type: "Movie", genre: "Drama", image: "Southpaw Poster.jpeg" },
+  { title: "Elektra (2005)", type: "Movie", genre: "Action", image: "Elektra (2005).jpeg" },
+  { title: "Pirates of the Caribbean (2003)", type: "Movie", genre: "Adventure", image: "_ (15).jpeg" },
+  { title: "Alita: Battle Angel (2019)", type: "Movie", genre: "Sci-Fi", image: "Alita_ Battle Angel Back In Theater Poster.jpeg" },
+  { title: "The Guardians", type: "Movie", genre: "Action", image: "the Guardians.jpeg" }
+];
 
 // ── 1. LOAD movies.json WHEN PAGE OPENS ────────
 fetch('movies.json')
